@@ -1,0 +1,38 @@
+-----make html
+-----make simple css
+-----make simple js - have pieces show up
+-----give shMetrominos different colors
+-----make controller and make pieces move
+-----add spins
+-----add kicktables
+-----add collision
+-----merge shMetrominos with board (maintain color)
+-----clear lines and drop when row is filled
+-----add perfect clear check
+-----implement timer
+-----object clean-up
+-----controller clean-up
+-----fix kicktables
+-----implement gravity
+-----implement scoring and leveling
+-----countdown before starting / resuming
+-----hide board when pauseddd 
+-----fix lines clear and perfect clear detection
+-----make stats on the side work
+-----implement better soft- and harddrop
+
+
+• make start... buttons work
+• disable buttons depending on gamestate
+• fix timers for arr and sdf and locking
+• implement combos
+• implement options 
+• implement menu
+• implement customizable controls on site
+• implement controller support (?)
+• implement ghost pieces
+• implement better visual response
+• implement simple animations, sounds and music
+• implement custom coloring
+• implement 40-lines
+• implement more game modes: eg. quadris, grandpa, party, (vs), training, (x)-points, vibe

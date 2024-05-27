@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" property="stylesheet">
+        <meta charset="utf-8">
+        <title>shMetrizz - Game Test</title>
+    </head>
+    <body>
+        <div id="game" onmousedown="return false;">
+            <div>
+                <div id="holding">
+                    <p>Holding:</p>
+                    <canvas width="168" height="168"></canvas>
+                </div>
+                <div>
+                    <div>
+                        <p class="info">Classic / Timed</p>
+                        <p class="info">Level: <b>1</b></p>
+                    </div>
+
+                    <div>
+                        <p class="info">Cleared: <b>0</b></p>
+                        <p class="info">Singles: <b>0</b></p>
+                        <p class="info">Doubles: <b>0</b></p>
+                        <p class="info">Triples: <b>0</b></p>
+                        <p class="info">Quads: <b>0</b></p>
+                        <p class="info">T-spin S: <b>0</b></p>
+                        <p class="info">T-spin D: <b>0</b></p>
+                        <p class="info">T-spin T: <b>0</b></p>
+                        <p class="info">Perfect Clears: <b>0</b></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="gameField">
+                <div id="board"><canvas width="480" height="1056"></canvas></div>
+                <div id="scoreDisplay">000,000,000,000,000</div>
+                <div id="timerDisplay">00 : 00 : 000</div>
+            </div>
+
+            <div>
+                <div id="next">
+                    <p>Next:</p>
+                    <canvas width="168" height="168"></canvas>
+                </div>
+
+                <canvas id="coming" width="96" height="432"></canvas>
+
+                <div>
+                    <button class="gameButtons" onclick="if(!game.state.starting) start()">Start</button>
+                    <button class="gameButtons" onclick="if(!game.state.starting) pause();">Pause</button>
+                    <button class="gameButtons" onclick="reset()">Reset</button>
+                </div>
+                
+                <p id="points"></p>
+            </div>
+        </div>
+
+        <!--  customize controls (Add movement options later as well)
+        <div>
+            <p class="controls">Start: &lt;<button></button>&gt; &lt;<button></button>&gt;</p>
+            <p class="controls">Pause: &lt;<button></button>&gt; &lt;<button></button>&gt;</p>
+            <p class="controls">Reset: &lt;<button></button>&gt; &lt;<button></button>&gt;</p>
+            <p class="controls">Left:  &lt;<button></button>&gt; &lt;<button></button>&gt;</p>
+            <p class="controls">Right: &lt;<button></button>&gt; &lt;<button></button>&gt;</p>
+            <p class="controls">Hold:  &lt;<button></button>&gt; &lt;<button></button>&gt;</p>
+            <p class="controls">Spin  90°: &lt;<button></button>&gt; &lt;<button></button>&gt;</p>
+            <p class="controls">Spin -90°: &lt;<button></button>&gt; &lt;<button></button>&gt;</p>
+            <p class="controls">Spin 180°: &lt;<button></button>&gt; &lt;<button></button>&gt;</p>
+            <p class="controls">Softdrop:  &lt;<button></button>&gt; &lt;<button></button>&gt;</p>
+            <p class="controls">Harddrop:  &lt;<button></button>&gt; &lt;<button></button>&gt;</p>
+        </div>
+        -->
+
+        <script src="shMetrizz.js"></script>
+    </body>
+</html>
