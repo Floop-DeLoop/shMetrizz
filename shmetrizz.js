@@ -734,12 +734,12 @@ function reset(){
 }
 
 function gameOver(timeUp){
-    if(!collision(player.pos.x, player.pos.y, player.orientation) || timeUp)
+    if(!collision(player.pos.x, player.pos.y, player.orientation) && !timeUp)
         return;
 
     clearTimeout(controller.movement.SD.ongoing);
-    controller.movement.SD.ongoing = null;
     clearInterval(game.time.timer);
+    controller.movement.SD.ongoing = null;
     game.state.playing = false;
     game.state.gameOver = true;
 }
@@ -1306,9 +1306,9 @@ function startTime(){
 function resetTime(){
     clearInterval(game.time.timer);
     if(game.state.timed){
-        game.time.ms = 20;
+        game.time.ms = 0;
         game.time.s = 60;
-        game.time.min = 2;
+        game.time.min = 1;
         document.querySelector("#timerDisplay").innerHTML = "02 : 00 : 000";
     }
     else{
@@ -1339,30 +1339,32 @@ function displayPlayTime(){
 
 // shows the countdown
 function displayCountDown(){
-    game.time.ms -= 20;
     if(!game.time.ms){
-        game.time.ms = 1000;
-        game.time.s--;
-        if(!game.time.s)
-            game.time.s = 60;
-        
-        else if(game.time.s == 59){
-            if(!game.time.min && game.time.ms == 1000){
+        if(!game.time.s){
+            if(!game.time.min){
                 gameOver(1);
+                document.querySelector("#timerDisplay").innerHTML = "Time up!";
                 return;
             }
 
             game.time.min--;
+            game.time.s = 59;
         }
+
+        game.time.s--;
+        game.time.ms = 1000;
     }
+    else
+        game.time.ms -= 20;
+    
     document.querySelector("#timerDisplay").innerHTML = makeTimeDisplay(true);
 }
   
 // returns a string containing the time as a display
 function makeTimeDisplay(){
     if(game.state.timed){
-        let milliseconds = displayTimerSegment((game.time.ms==1000)? 0 : game.time.ms/10);
-        let seconds = displayTimerSegment(game.time.s==60? 0 : game.time.s);
+        let milliseconds = displayTimerSegment((game.time.ms==1000)? 0 : (game.time.ms / 10));
+        let seconds = displayTimerSegment(game.time.s);
         let minutes = displayTimerSegment(game.time.min);
         return minutes + " : " + seconds + " : " + milliseconds + "0";
     }
